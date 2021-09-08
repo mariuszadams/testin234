@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "kube-f20e"
+    labels:
+        app: "kube-f20e"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: testin-kube-f20e.8848850f3cad4a6a8afb.westeurope.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "kube-f20e"
+                servicePort: 80
