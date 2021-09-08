@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "kube-f20e"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "kube-f20e"
+  template:
+    metadata:
+      labels:
+        app: "kube-f20e"
+    spec:
+      containers:
+        - name: "kube-f20e"
+          image: "devopsmoc.azurecr.io/kube"
+          ports:
+          - containerPort: 80
